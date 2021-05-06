@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verbondsraadbingo Mei</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body onLoad="GenerateTable()">
+
+<h1>Verbondsraadbingo Mei</h1>
+<button onclick="window.print();return false;" class="noPrint" >Klik hier om te printen!</button>
+<p id="placeholder"></p>
+
+</body>
+
+<script>
+    function GenerateTable(){
+
+        var tekstjes = [
+        "Iemand moet spreken maar staat op mute",
+        "Niemand heeft opmerkingen over het vorig verslag",
+        "Het laden van het scherm delen duurt lang. ",
+        "Je zingt mee met het jaarlied",
+        "Pieter vertelt een metafoor",
+        "Iemand stelt een overbodige of ongepaste vraag",
+        "Een Doms stelt een doordachte vraag. ",
+        "De spelregels worden in vraag gesteld.",
+        "Pieter wordt emotioneel",
+        "Je gouw wordt vernoemd",
+        "Er wordt een 'tzalwelzijn' mopje gemaakt",
+        "Toch nog steeds een Corona kapsel gespot",
+        "Niemand neemt het woord in een breakout room",
+        "Je bent met je gouw in de minderheid in een breakout room",
+        "Je doet een babbeltje met iemand nieuw",
+        "Iemand heeft veel achtergrondgeluid",
+        "Je mist de echte (kater) verbondsraden",
+        "Er wordt een verwijzing gemaakt naar de pre verbondsraad",
+        "Je hoort Leen haar prachtige aanstekelijke lach",
+        "Je stelt je in vraag hoelang je al naar een scherm hebt zitten kijken deze week ",
+        "Je zit weer met dezelfde mensen in een breakout room",
+        "Je kan iemand laten lachen met een privebericht",
+        "Je spot iemand waarbij je hoopt dat er snel terug de Labamba gedanst kan worden",
+        "Één iemand stemt ‘onthouding’ en je vermoed dat het de persoon is die een opmerking had over de stemvraag",
+        "Je spot iemand die heel duidelijk niet aan het opletten is",
+        "Iemand is aan het eten",
+        "Er zijn problemen met de break-out rooms",
+        "Er loopt een kat in beeld",
+        "Iemand heeft een plant in zijn achtergrond die je zelf ook hebt",
+        "Wim pikt zeer diplomatisch in in een discussie",
+        "Je ziet iemand anders juichen omdat ze bingo hebben",
+        "De Zebraachtergrond duikt weer op",
+        "Sofie Maus geeft een overduidelijke uitleg over iets financiëel"
+        ]
+        
+        shuffle(tekstjes)
+
+        var table = document.createElement("table");
+        
+        var n = 0;
+        for (var i = 0; i < 5; i++ ){
+            tr = table.insertRow(-1);
+            for (var j = 0; j < 5; j++){
+                var cell = tr.insertCell(-1);
+                cell.innerHTML = tekstjes[n];
+                n++;
+            }
+        }
+
+        var container = document.getElementById("placeholder");
+        container.innerHTML = "";
+        container.appendChild(table);
+
+    }
+
+    function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+</script>
+
+</html>
